@@ -1,0 +1,58 @@
+# ================================
+#          BACKEND - SPRING BOOT
+# ================================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+*.class
+*.log
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# ================================
+#          FRONTEND - REACT
+# ================================
+FE_Foodee/node_modules/
+FE_Foodee/dist/
+FE_Foodee/build/
+FE_Foodee/.env
+FE_Foodee/.env.*
+!FE_Foodee/.env.example
+
+# ================================
+#          VS CODE
+# ================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+
+# ================================
+#          INTELLIJ IDEA (nếu sau này dùng)
+# ================================
+.idea/
+*.iml
+out/
+
+# ================================
+#          OPERATING SYSTEM
+# ================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# ================================
+#          MISC
+# ================================
+*.tmp
+*.temp
