@@ -46,7 +46,7 @@ function ProductManager() {
 
             try {
                 // Lấy danh sách sản phẩm
-                const productsData = await getProducts();
+                const productsData = await getProducts(token);
                 const enrichedProducts = productsData.map(product => ({
                     id: product.id,
                     name: product.name,
@@ -394,7 +394,7 @@ function ProductManager() {
         }
 
         try {
-            const productsData = await getProducts();
+            const productsData = await getProducts(token);
             const enrichedProducts = productsData.map(product => ({
                 id: product.id,
                 name: product.name,

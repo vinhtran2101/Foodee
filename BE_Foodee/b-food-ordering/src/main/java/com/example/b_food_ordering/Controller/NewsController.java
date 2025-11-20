@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/news")
+@RequestMapping("/api/admin/news")
 public class NewsController {
 
     private final NewsService newsService;

@@ -2,10 +2,15 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:8080/api/user';
 
+// Hàm lấy token an toàn
+const getToken = (token) => {
+    return token || localStorage.getItem('token') || "";
+};
+
 export const getProfile = async (token) => {
     try {
         const response = await axios.get(`${API_URL}/profile`, {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${getToken(token)}` },
         });
         return response.data;
     } catch (error) {
@@ -16,7 +21,7 @@ export const getProfile = async (token) => {
 export const updateProfile = async (token, profileData) => {
     try {
         const response = await axios.put(`${API_URL}/profile`, profileData, {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${getToken(token)}` },
         });
         return response.data;
     } catch (error) {
@@ -27,7 +32,7 @@ export const updateProfile = async (token, profileData) => {
 export const updateAdminProfile = async (token, profileData) => {
     try {
         const response = await axios.put(`${API_URL}/admin/profile`, profileData, {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${getToken(token)}` },
         });
         return response.data;
     } catch (error) {
@@ -38,28 +43,28 @@ export const updateAdminProfile = async (token, profileData) => {
 export const getAllUsers = async (token) => {
     try {
         const response = await axios.get(`${API_URL}/all`, {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${getToken(token)}` },
         });
         return response.data;
     } catch (error) {
-        throw error.response?.data || 'Không thể tải danh sách người dùng. Vui lòng kiểm tra token hoặc quyền.';
+        throw error.response?.data || 'Không thể tải danh sách người dùng.';
     }
 };
 
 export const deleteUser = async (token, username) => {
     try {
         await axios.delete(`${API_URL}/delete/${username}`, {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${getToken(token)}` },
         });
     } catch (error) {
-        throw error.response?.data || 'Không thể xóa người dùng. Vui lòng kiểm tra quyền.';
+        throw error.response?.data || 'Không thể xóa người dùng.';
     }
 };
 
 export const createUser = async (token, userData) => {
     try {
         const response = await axios.post(`${API_URL}/create`, userData, {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${getToken(token)}` },
         });
         return response.data;
     } catch (error) {
